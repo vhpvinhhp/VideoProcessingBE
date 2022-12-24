@@ -5,7 +5,6 @@ import Locals from "../providers/locals";
 
 export class WatermartService {
 	private cmd = 'ffmpeg';
-	private fontFile = '/Windows/Fonts/arial.ttf';
     constructor() {}
 	public getFilterString(options: WatermartTextOptions | WatermartImageOptions): Array<string> {
 		if(options.type == 'text') {
@@ -38,4 +37,18 @@ export class WatermartService {
 		]);
         return outputPath;
     }
+
+	public mergeVideo(url, outputPath){
+		console.log(Locals.config().INTRO_VIDEO);
+		spawnSync(this.cmd, [
+			'-y', 
+			'-i', Locals.config().INTRO_VIDEO,
+			'-i', url,
+			'-i', Locals.config().OUTRO_VIDEO,
+			'-filter_complex', "[0:v][0:a][1:v][1:a][2:v][2:a]concat=n=3:v=1:a=1[v][a]",
+			'-map', '[v]', '-map', '[a]', outputPath
+		]);
+        return outputPath;
+		
+	}
 }
