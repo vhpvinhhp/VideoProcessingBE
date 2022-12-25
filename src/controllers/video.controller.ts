@@ -6,15 +6,13 @@ import * as fs from 'fs';
 import { v4 as uuidv4 } from 'uuid';
 
 export class VideoController {
-	constructor() { }
-
-	public static handleWatermart = async (req: Request, res: Response, next): Promise<any> => {
+	public static handleWatermart = async (req: Request, res: Response): Promise<any> => {
 		const { options, videoURL} = req.body;
 		const watermartService = new WatermartService();
 		const filename = `${uuidv4()}.mp4`;
 		const outputPath: string =  path.join(Locals.config().STORAGE_PATH,filename);
 		const tempPath: string =  path.join(Locals.config().STORAGE_PATH,'/temps/',filename);
-		const url: string = `${Locals.config().STORAGE_URL}/${filename}`
+		const url = `${Locals.config().STORAGE_URL}/${filename}`
 
 		const filter: Array<string> = watermartService.getFilterString(options);
 		const newVideo = watermartService.renderWidthFilters(videoURL, filter, tempPath)

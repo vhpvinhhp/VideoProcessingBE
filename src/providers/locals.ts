@@ -1,12 +1,8 @@
 import * as path from 'path';
-
-require('dotenv').config();
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 class LocalsProvider {
-    constructor() {
-        
-    };
-
     public static config() {
         return {
             STORAGE_PATH: path.join(__dirname, '../../storages/'),
@@ -18,7 +14,7 @@ class LocalsProvider {
             OUTRO_VIDEO: process.env.OUTRO_VIDEO,
             PORT: 3000
         }
-    };
+    }
 }
 
 export default LocalsProvider;

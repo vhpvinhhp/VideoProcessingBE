@@ -1,11 +1,9 @@
 import { spawnSync } from "child_process";
 import { WatermartImageOptions, WatermartTextOptions } from "src/types";
-import * as path from 'path'
 import Locals from "../providers/locals";
 
 export class WatermartService {
 	private cmd = 'ffmpeg';
-    constructor() {}
 	public getFilterString(options: WatermartTextOptions | WatermartImageOptions): Array<string> {
 		if(options.type == 'text') {
 			const optionsText: WatermartTextOptions = options;

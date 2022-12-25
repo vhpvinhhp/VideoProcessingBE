@@ -1,7 +1,6 @@
-import { VideoController } from '../src/controllers';
  
 describe('testing video controller file', () => {
-  test('empty string should result in zero', () => {
+  test('Two + two should result in four', () => {
     expect(2 + 2).toBe(4);
   });
 });
