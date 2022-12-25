@@ -34,7 +34,6 @@ describe('Testing handleWatermart of VideoController', () => {
 				color: "red",
 				time: "00:00:08",
 				fontStyle: {
-					fontFile: "arial",
 					fontSize: 24
 				},
 				position: {
@@ -61,7 +60,6 @@ describe('Testing handleWatermart of VideoController', () => {
 				color: "red",
 				time: "00:00:08",
 				fontStyle: {
-					fontFile: "arial",
 					fontSize: 24
 				},
 				position: {
@@ -88,7 +86,6 @@ describe('Testing handleWatermart of VideoController', () => {
 				color: "red",
 				time: "00:00:08",
 				fontStyle: {
-					fontFile: "arial",
 					fontSize: 24
 				},
 				position: {

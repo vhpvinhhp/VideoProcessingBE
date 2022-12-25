@@ -1,6 +1,5 @@
 export interface FontStyle { 
-    fontSize: string,
-    fontFile: string
+    fontSize: string
 }
 
 export interface Position {

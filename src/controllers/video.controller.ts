@@ -22,10 +22,10 @@ export class VideoController {
 		const filter: Array<string> = watermartService.getFilterString(options);
 		const newVideo = watermartService.renderWidthFilters(videoURL, filter, tempPath)
 		watermartService.mergeVideo(newVideo, outputPath)
+		fs.unlink(tempPath,() => {});
 		if(!fs.existsSync(outputPath)) {
 			throw new Error('The proccess failed, Try again, please!');
 		}
-		fs.unlink(tempPath,() => {});
 		return { data: url };
 	}
 }   

@@ -7,10 +7,7 @@ export class WatermartService {
 	public getFilterString(options: WatermartTextOptions | WatermartImageOptions): Array<string> {
 		if(options.type == 'text') {
 			const optionsText: WatermartTextOptions = options;
-			const fontFile = Locals.config().FONTS[optionsText?.fontStyle?.fontFile];
-			if(!fontFile) {
-				throw new Error('Font file not empty!'); 
-			}
+			const fontFile = Locals.config().FONTS_FILE;
 			return [ 
 				"-t", optionsText.time, 
 				'-filter_complex', `drawtext=fontcolor=${optionsText.color}:fontfile=${fontFile}:text=${optionsText.content}:fontsize=${optionsText?.fontStyle?.fontSize}:x=${optionsText?.position.x}:y=${optionsText?.position.y}` 
