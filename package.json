@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "test": "jest",
+    "test": "jest --detectOpenHandles --runInBand --forceExit",
     "start": "tsc && node dist/index",
     "lint": "eslint . --ext .ts"
   },
@@ -23,6 +23,7 @@
     "body-parser": "^1.20.1",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-validator": "^6.14.2",
     "path": "^0.12.7",
     "uuid": "^9.0.0"
   },
@@ -31,10 +32,12 @@
     "@types/express": "^4.17.15",
     "@types/jest": "^29.2.4",
     "@types/node": "^10.17.60",
-    "@typescript-eslint/parser": "^5.47.0",
+    "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.47.0",
+    "@typescript-eslint/parser": "^5.47.0",
     "eslint": "^7.32.0",
     "jest": "^29.3.1",
+    "supertest": "^6.3.3",
     "ts-jest": "^29.0.3",
     "ts-loader": "^9.4.2",
     "ts-node": "^10.9.1",

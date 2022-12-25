@@ -9,7 +9,7 @@ export class WatermartService {
 			const optionsText: WatermartTextOptions = options;
 			const fontFile = Locals.config().FONTS[optionsText?.fontStyle?.fontFile];
 			if(!fontFile) {
-				throw new Error('FontFile Required'); 
+				throw new Error('Font file not empty!'); 
 			}
 			return [ 
 				"-t", optionsText.time, 
@@ -37,7 +37,6 @@ export class WatermartService {
     }
 
 	public mergeVideo(url, outputPath){
-		console.log(Locals.config().INTRO_VIDEO);
 		spawnSync(this.cmd, [
 			'-y', 
 			'-i', Locals.config().INTRO_VIDEO,

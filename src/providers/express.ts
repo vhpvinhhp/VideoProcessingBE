@@ -2,11 +2,10 @@ import * as express from "express";
 import * as bodyParser from 'body-parser';
 import apiRouter from '../routers/api.router';
 import Locals from './locals';
+import handler from "../exceptions/handler";
 
 class ExpressProvider {
-    constructor(
-        private app = express.application
-    ) {
+    constructor(private app = express.application) {
         this.app = express()
     }
     public main() {
@@ -17,7 +16,11 @@ class ExpressProvider {
         this.app.use('/storages', express.static('storages'))
         this.app.use('/api', apiRouter);
         this.app.set('port', Locals.config().PORT || 3000);
+        this.app.use(handler.notFound);
+        return this.app
+    }
 
+    public listen() { 
         this.app.listen(this.app.get('port'), () => {
             console.log(`Express running → PORT ${this.app.get('port')}`);
         });

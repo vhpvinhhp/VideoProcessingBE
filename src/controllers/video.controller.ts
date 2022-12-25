@@ -4,9 +4,14 @@ import * as path from 'path'
 import Locals from '../providers/locals';
 import * as fs from 'fs';
 import { v4 as uuidv4 } from 'uuid';
+import { validationResult } from 'express-validator';
 
 export class VideoController {
-	public static handleWatermart = async (req: Request, res: Response): Promise<any> => {
+	public static handleWatermart = async (req: Request, res: Response) : Promise< string | object> => {
+		const errors = validationResult(req);
+		if (!errors.isEmpty()) {
+			return { errors: errors.array() };
+		}      
 		const { options, videoURL} = req.body;
 		const watermartService = new WatermartService();
 		const filename = `${uuidv4()}.mp4`;
@@ -17,10 +22,10 @@ export class VideoController {
 		const filter: Array<string> = watermartService.getFilterString(options);
 		const newVideo = watermartService.renderWidthFilters(videoURL, filter, tempPath)
 		watermartService.mergeVideo(newVideo, outputPath)
-		fs.unlink(tempPath,() => console.log('Removed temp File'));
 		if(!fs.existsSync(outputPath)) {
-			return res.status(400).json({ messenge : 'The proccess failed, Try again, please!'});
+			throw new Error('The proccess failed, Try again, please!');
 		}
-		return res.status(200).json({ url });
+		fs.unlink(tempPath,() => {});
+		return { data: url };
 	}
 }   
