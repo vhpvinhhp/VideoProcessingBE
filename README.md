@@ -5,7 +5,8 @@
 - [Pre-requirement](#pre-requirement)
 - [Installtion](#installation)
 - [Starting server](#starting-server)
-- [Scope of API include](#Scope)
+- [Scope of API include](#scope-of-api-include)
+- [Testing](#sesting)
 
 # Pre-requirements
 
@@ -74,9 +75,19 @@ $ npm run start
 http://localhost:3000/api
 ```
 
-## Scope
+## Scope of API include
 
 1. Input video via http link
 2. Allow add watermart text (multiple) into video above (can set position, size, time, color & font style)
 3. Allow add watermark images (multiple) in video above (can set position, size, time)
 4. Merge multiple video become final video (example: merge intro & outro into video above)
+
+# Testing
+
+- This repository use Jest.
+
+For run test case unit test.
+
+```bash
+$ npm run test
+```
