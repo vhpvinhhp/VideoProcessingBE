@@ -1,9 +1,9 @@
 import * as request from "supertest";
 import express from '../../src/providers/express'
 const app = express.main();
-describe('Testing handleWatermart of VideoController', () => {
+describe('Testing handleWatermark of VideoController', () => {
 	test('Case Error 1: req.body is empty should result in a status of 400', async () => {
-		const res = await request(app).post('/api/watermart').send({});
+		const res = await request(app).post('/api/Watermark').send({});
 		expect(res.statusCode).toBe(400);
 		expect(res.body).toEqual(
 			expect.objectContaining({
@@ -16,7 +16,7 @@ describe('Testing handleWatermart of VideoController', () => {
 		const data = {
 			videoURL: "https://player.vimeo.com/external/181545195.sd.mp4?s=176d502710df829442a83565bb79efbe3c9c0b93&profile_id=164"
 		}
-		const res = await request(app).post('/api/watermart').send(data);
+		const res = await request(app).post('/api/Watermark').send(data);
 		expect(res.statusCode).toBe(400);
 		expect(res.body).toEqual(
 			expect.objectContaining({
@@ -42,7 +42,7 @@ describe('Testing handleWatermart of VideoController', () => {
 				}
 			}
 		}
-		const res = await request(app).post('/api/watermart').send(data);
+		const res = await request(app).post('/api/Watermark').send(data);
 		expect(res.statusCode).toBe(400);
 		expect(res.body).toEqual(
 			expect.objectContaining({
@@ -68,7 +68,7 @@ describe('Testing handleWatermart of VideoController', () => {
 				}
 			}
 		}
-		const res = await request(app).post('/api/watermart').send(data);
+		const res = await request(app).post('/api/Watermark').send(data);
 		expect(res.statusCode).toBe(400);
 		expect(res.body).toEqual(
 			expect.objectContaining({
@@ -77,7 +77,7 @@ describe('Testing handleWatermart of VideoController', () => {
 			})
 		);
 	});
-	test('Case Success 1: Add Watermart Text should result in status 200', async () => {
+	test('Case Success 1: Add Watermark Text should result in status 200', async () => {
 		const data = {
 			options: {
 				type: "text",
@@ -95,7 +95,7 @@ describe('Testing handleWatermart of VideoController', () => {
 			},
 			videoURL: "https://player.vimeo.com/external/181545195.sd.mp4?s=176d502710df829442a83565bb79efbe3c9c0b93&profile_id=164"
 		}
-		const res = await request(app).post('/api/watermart').send(data);
+		const res = await request(app).post('/api/Watermark').send(data);
 		expect(res.statusCode).toBe(200);
 		expect(res.body).toEqual(
 			expect.objectContaining({
@@ -104,7 +104,7 @@ describe('Testing handleWatermart of VideoController', () => {
 			})
 		);
 	});
-	test(' Case Success 2: Add Watermart Image should result in status 200', async () => {
+	test(' Case Success 2: Add Watermark Image should result in status 200', async () => {
 		const data = {
 			options: {
 				type: "image",
@@ -118,7 +118,7 @@ describe('Testing handleWatermart of VideoController', () => {
 			},
 			videoURL: "https://player.vimeo.com/external/181545195.sd.mp4?s=176d502710df829442a83565bb79efbe3c9c0b93&profile_id=164"
 		}
-		const res = await request(app).post('/api/watermart').send(data);
+		const res = await request(app).post('/api/Watermark').send(data);
 		expect(res.statusCode).toBe(200);
 		expect(res.body).toEqual(
 			expect.objectContaining({

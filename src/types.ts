@@ -7,10 +7,9 @@ export interface Position {
     y: string
 }
 
-export interface WatermartTextOptions {
+export interface WatermarkTextOptions {
     type: string,
     content?: string,
-    image?: string,
     size: number,
     time: string,
     color?: string,
@@ -18,7 +17,7 @@ export interface WatermartTextOptions {
     position: Position
 }
 
-export interface WatermartImageOptions {
+export interface WatermarkImageOptions {
     type: string,
     image?: string,
     time: string,

@@ -78,7 +78,7 @@ http://localhost:3000/api
 ## Scope of API include
 
 1. Input video via http link
-2. Allow add watermart text (multiple) into video above (can set position, size, time, color & font style)
+2. Allow add Watermark text (multiple) into video above (can set position, size, time, color & font style)
 3. Allow add watermark images (multiple) in video above (can set position, size, time)
 4. Merge multiple video become final video (example: merge intro & outro into video above)
 

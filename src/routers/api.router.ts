@@ -5,7 +5,7 @@ import handler from "../exceptions/handler";
 
 const router = express.Router();
 
-const watermartValidation  = [
+const WatermarkValidation  = [
     check('options','options not empty!').notEmpty(),
     check('options.type','Type not empty!').if(body('options').exists()).notEmpty(),
     check('options.position','Position not empty!').if(body('options').exists()).notEmpty(),
@@ -16,6 +16,6 @@ const watermartValidation  = [
     check('options.position','Position invalid!').if(body('options.position').exists()).isObject(),
     check('videoURL','videoURL invalid!').if(body('videoURL').exists()).isString(),
 ]
-router.post('/watermart', watermartValidation , handler.catchErrors(VideoController.handleWatermart))
+router.post('/Watermark', WatermarkValidation , handler.catchErrors(VideoController.handleWatermark))
 
 export default router;
