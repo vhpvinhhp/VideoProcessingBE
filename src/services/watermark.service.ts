@@ -14,7 +14,7 @@ export class WatermarkService {
 			const fontFile = Locals.config().FONTS_FILE;
 			if(optionsText.content){
 				return filters.concat([
-					'-filter_complex', `drawtext=fontcolor=${optionsText.color}:fontfile=${fontFile}:text=${optionsText.content}:fontsize=${optionsText?.fontStyle?.fontSize || '12'}:x=${optionsText?.position.x || '0'}:y=${optionsText?.position.y || '0'}` 
+					'-filter_complex', `drawtext=fontcolor=${optionsText.color || 'red'}:fontfile=${fontFile}:text=${optionsText.content}:fontsize=${optionsText?.fontStyle?.fontSize || '12'}:x=${optionsText?.position.x || '0'}:y=${optionsText?.position.y || '0'}` 
 				]);
 			}
 		} else if(options.type == 'image') {
