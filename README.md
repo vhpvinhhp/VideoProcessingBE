@@ -47,7 +47,7 @@ $ mkdir storages/temps
 ```bash
 $ cp .env.example .env
 ```
-* Note : FONTS_FILE variable is a font path of system
+Note*: FONTS_FILE variable is a font path of system
 
 - Example:
 ```bash
